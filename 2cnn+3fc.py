@@ -118,6 +118,37 @@ plt.legend(['Training', 'Validation'], loc=4)
 plt.show()
 
 
+#增加BN层，测试精度为
+model2 = Sequential()
+model2.add(InputLayer(input_shape=(28, 28, 1)))
+model2.add(Conv2D(64, (5, 5), activation='relu', padding='same', 
+                 bias_initializer='RandomNormal', 
+                 kernel_initializer='random_uniform'))
+model2.add(BatchNormalization())
+model2.add(MaxPooling2D(pool_size=(2, 2)))
+model2.add(Conv2D(128, (3, 3), activation='relu', padding='same'))
+model2.add(BatchNormalization())
+model2.add(MaxPooling2D(pool_size=(2, 2)))
+model2.add(Flatten())
+model2.add(Dense(128, activation='relu'))
+model2.add(BatchNormalization())
+model2.add(Dropout(0.5))
+model2.add(Dense(64, activation='relu'))
+model2.add(BatchNormalization())
+model2.add(Dropout(0.5))
+model2.add(Dense(10, activation='softmax'))
+
+optimizer = Adam(lr=0.001)
+model2.compile(loss='categorical_crossentropy', optimizer=optimizer, 
+              metrics=['accuracy'])
+
+
+import time 
+start_time = time.time()
+
+hist = model2.fit(x_train, y_train, validation_data=(x_val, y_val), 
+               batch_size=256, epochs=30, verbose=1)
+training_time = time.time() - start_time
 
 
 
