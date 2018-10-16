@@ -13,3 +13,14 @@
 	*optimizer: Adam, learning_rate=0.001
 
 	测试集准确率：0.9228
+	
+### 2. 2conv+3fc+BN.py
+
+	*conv1： filter深度64，filter_size 5x5, 全零填充
+	*conv2： filter深度128，filter_size 3x3, 全零填充
+	*pooling: filter_size 2x2
+	*3fc: 128x64x10
+	*dropout_rate: 0.5
+	*optimizer: Adam, learning_rate=0.001
+
+	测试集准确率：0.9228
