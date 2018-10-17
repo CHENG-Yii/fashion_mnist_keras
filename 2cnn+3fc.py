@@ -118,7 +118,7 @@ plt.legend(['Training', 'Validation'], loc=4)
 plt.show()
 
 
-#增加BN层，测试精度为
+#增加BN层，测试精度为0.8974
 model2 = Sequential()
 model2.add(InputLayer(input_shape=(28, 28, 1)))
 model2.add(Conv2D(64, (5, 5), activation='relu', padding='same', 
