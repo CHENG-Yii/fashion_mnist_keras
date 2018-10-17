@@ -23,4 +23,4 @@
 	*dropout_rate: 0.5
 	*optimizer: Adam, learning_rate=0.001
 
-	测试集准确率：0.9228
+	测试集准确率：0.8974
